@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "272043500489",
+    "project_id": "chats-app-f17b0",
+    "storage_bucket": "chats-app-f17b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272043500489:android:1c2a42515327fc7a7bfe18",
+        "android_client_info": {
+          "package_name": "com.eshan.chatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272043500489-hm80gdc33ghl10nhtplut8p3uv69lj98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALz22OXpzv18C3WQmWP6TLQS3d1Dka0Sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272043500489-hm80gdc33ghl10nhtplut8p3uv69lj98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
