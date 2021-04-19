@@ -55,6 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
                 // ignore: deprecated_member_use
                 TypewriterAnimatedTextKit(
+                  speed: Duration(milliseconds: 250),
                   text: ['Chats-App'],
                   textStyle: TextStyle(
                     fontSize: 45.0,

@@ -3,8 +3,16 @@ import 'package:chatsapp/screens/welcome_screen.dart';
 import 'package:chatsapp/screens/login_screen.dart';
 import 'package:chatsapp/screens/registration_screen.dart';
 import 'package:chatsapp/screens/chat_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(Chatsapp());
+void main() async {
+  // Ensure that Firebase is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize Firebase
+  await Firebase.initializeApp();
+  //
+  runApp(Chatsapp());
+}
 
 class Chatsapp extends StatelessWidget {
   @override
