@@ -19,6 +19,7 @@ class Chatsapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: WelcomeScreen.id,
+      theme: ThemeData.dark(),
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         ChatScreen.id: (context) => ChatScreen(),
