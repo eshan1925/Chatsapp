@@ -1,5 +1,6 @@
 import 'package:chatsapp/Components/rounded_button.dart';
 import 'package:chatsapp/constants.dart';
+import 'package:chatsapp/screens/Chatheads.dart';
 import 'package:chatsapp/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         final user = await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
                         if (user != null) {
-                          Navigator.pushNamed(context, ChatScreen.id);
+                          Navigator.pushNamed(context, ChatHead.id);
                         }
                         setState(() {
                           showSpinner = false;
