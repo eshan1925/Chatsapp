@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+String selectedUser;
+
 class LoginScreen extends StatefulWidget {
   static const String id = 'Login_Screen';
   @override
@@ -82,6 +84,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       try {
                         final user = await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
+                        selectedUser = user.user.email;
+                        print(selectedUser);
                         if (user != null) {
                           Navigator.pushNamed(context, ChatHead.id);
                         }

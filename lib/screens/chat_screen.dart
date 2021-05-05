@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chatsapp/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:chatsapp/screens/login_screen.dart';
 
 final _firestore = FirebaseFirestore.instance;
 User loggedInUser;
@@ -109,7 +110,8 @@ class _ChatScreenState extends State<ChatScreen> {
                         _firestore.collection('messages').add({
                           'text': messageText,
                           'sender': loggedInUser.email,
-                          'timestamp': FieldValue.serverTimestamp()
+                          'timestamp': FieldValue.serverTimestamp(),
+                          'userid': loggedInUser.uid,
                         });
                       },
                       child: Text(
@@ -144,22 +146,29 @@ class MessagesStream extends StatelessWidget {
         }
         final messages = snapshot.data.docs.reversed;
         List<MessageBubble> messageBubbles = [];
+        List<MessageBubble> messageBubblesUser = [];
         for (var message in messages) {
           final messageText = message.data()['text'];
           final messageSender = message.data()['sender'];
           final currentUser = loggedInUser.email;
+          final userId = loggedInUser.uid;
           final messageBubble = MessageBubble(
             sender: messageSender,
             text: messageText,
             isMe: currentUser == messageSender,
+            userid: userId,
           );
           messageBubbles.add(messageBubble);
         }
+        messageBubblesUser = messageBubbles
+            .where((element) => element.sender == selectedUser)
+            .toList();
+
         return Expanded(
           child: ListView(
             reverse: true,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            children: messageBubbles,
+            children: messageBubblesUser,
           ),
         );
       },
@@ -171,9 +180,10 @@ class MessagesStream extends StatelessWidget {
 
 // ignore: must_be_immutable
 class MessageBubble extends StatelessWidget {
-  MessageBubble({this.sender, this.text, this.isMe});
+  MessageBubble({this.sender, this.text, this.isMe, this.userid});
   final String sender;
   final String text;
+  final String userid;
   bool isMe;
   @override
   Widget build(BuildContext context) {
