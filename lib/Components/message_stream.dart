@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:chatsapp/Components/Messagebubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:chatsapp/screens/login_screen.dart';
 import 'package:chatsapp/screens/chat_screen.dart';
+
 
 final _firestore = FirebaseFirestore.instance;
 
